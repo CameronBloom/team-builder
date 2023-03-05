@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+form {
+  border: solid black 1px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 40%;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.list {
+  padding: 1rem;
+  background-color: pink;
+  border: solid black 1px;
+  width: 40%;
+  margin: 1rem auto;
+}

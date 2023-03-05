@@ -1,25 +1,64 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
-function App() {
+export default function App() {
+
+  const dummyData = [
+    { name: "one", email: "one@email.com", role: "backend engineer"},
+    { name: "two", email: "two@email.com", role: "frontend engineer"},
+    { name: "three", email: "three@email.com", role: "designer"},
+    { name: "four", email: "four@email.com", role: "analyst"},
+  ]
+
+  const [teamData, setTeamData] = useState(dummyData);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form>
+        <label>Employee Name:&nbsp;
+          <input 
+            type="text"
+            name="username"
+            value=""
+          />
+        </label>
+        <label>Employee Email:&nbsp;
+          <input 
+            type="email"
+            id="email"
+            name="email"
+            value=""
+            onChange=""
+          />
+        </label>
+        <label>Employee Role:&nbsp;
+          <input 
+            type="text"
+            id="role"
+            name="role"
+            list="roles"
+            value=""
+          />
+        </label>
+        <datalist id="roles">
+            <option value="backend engineer" />
+            <option value="frontend engineer" />
+            <option value="designer" />
+            <option value="analyst" />
+          </datalist>
+
+      </form>
+      {teamData.map(teammate => {
+        return (
+          <div className="list">
+            <div>{teammate.name}</div>
+            <div>{teammate.email}</div>
+            <div>{teammate.role}</div>
+          </div>
+
+        )
+      })}
     </div>
   );
 }
-
-export default App;
