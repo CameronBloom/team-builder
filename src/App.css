@@ -41,11 +41,25 @@ form {
   border: solid black 1px;
   padding: 1rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   gap: 0.5rem;
   width: 40%;
   margin: auto;
   margin-top: 1rem;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 0.5rem;
+}
+
+.right input {
+  height: 3rem;
+  width: 6rem;
 }
 
 .list {
