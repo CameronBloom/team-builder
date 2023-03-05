@@ -15,6 +15,7 @@ export default function App() {
 
   const [teamData, setTeamData] = useState(defaultTeamData);
   const [formValues, setFormValues] = useState(defaultFormValues);
+  const [memberToEdit, setMemberToEdit] = useState({ name: "", email: "", role: "" })
 
   const onChange = (name, value) => {
     // spread out values and adjust the key value pair
@@ -24,15 +25,21 @@ export default function App() {
   const onSubmit = () => {
     setTeamData([formValues, ...teamData]);
     setFormValues(defaultFormValues)
+  }
 
+  const onEdit = (toEdit) => {
+    setMemberToEdit(toEdit);
+    console.log(memberToEdit)
   }
 
   return (
     <div className="App">
       <Form 
         values={formValues}
+        setValues={setFormValues}
         change={onChange}
         submit={onSubmit}
+        edit={memberToEdit}
       />
       {teamData.map((teammate, idx) => {
         return (
@@ -40,8 +47,8 @@ export default function App() {
             <div>{teammate.name}</div>
             <div>{teammate.email}</div>
             <div>{teammate.role}</div>
+            <button type="button" onClick={() => onEdit(teammate)}>Edit</button>
           </div>
-
         )
       })}
     </div>

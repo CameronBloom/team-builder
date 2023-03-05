@@ -1,7 +1,12 @@
+import { useEffect } from "react";
+
 export default function Form(props) {
 
-  const { values, change, submit } = props
+  const { values, setValues, change, submit, edit } = props
 
+  useEffect(() => {
+    setValues(edit);
+  })
 
   const handleChange = event => {
     const { name, value } = event.target;
